@@ -9,7 +9,7 @@
 	},
 	"description": "Local analytics!",
 	"permissions":[
-		"http://localhost/*",
+		"http://localhost/*"
 	],
 	"web_accessible_resources": [
 		"img/glyphicons-halflings.png"
