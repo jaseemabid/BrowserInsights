@@ -1,0 +1,41 @@
+{
+	"name": "Local analytics",
+	"version": "1.0",
+	"manifest_version": 2,
+	"icons":{
+		"16": "16.png",
+		"48": "48.png",
+		"128": "128.png"
+	},
+	"description": "Local analytics!",
+	"permissions":[
+		"http://localhost/*",
+	],
+	"web_accessible_resources": [
+		"img/glyphicons-halflings.png"
+	],
+	"content_scripts": [
+		{
+			"matches": [
+				"http://localhost/*"
+			],
+			"js": [
+				"lib/jquery-1.7.2.min.js",
+				"lib/handlebars-1.0.0.beta.6.js",
+				"lib/underscore-min.js",
+				"lib/backbone-min.js",
+				"js/config.js",
+				"js/reset.js",
+				"js/models.js",
+				"js/views.js",
+				"js/app.js",
+				"js/test.js"
+			],
+			"css": [
+				"css/bootstrap.min.css",
+				"css/style.css"
+			],
+			"run_at": "document_start"
+		}
+	]
+}
