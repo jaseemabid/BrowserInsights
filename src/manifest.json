@@ -15,6 +15,7 @@
 	},
 	"permissions":[
 		"history",
+		"webNavigation",
 		"http://localhost/*"
 	],
 	"web_accessible_resources": [
