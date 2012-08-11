@@ -5,9 +5,14 @@
 "use strict";
 MyApp.Models = {
 	RawData : Backbone.Model.extend({
+		defaults: {
+			"mostVisited":  {},
+			"punchcard": {}
+		},
 		initialize : function () {
 			var microsecondsPerYear = 1000 * 60 * 60 * 24 * 7 * 365,
-				oneYearAgo = (new Date()).getTime() - microsecondsPerYear;
+				oneYearAgo = (new Date()).getTime() - microsecondsPerYear,
+				that = this;
 
 			/**
 			 * URL and Frequency!
@@ -57,11 +62,10 @@ MyApp.Models = {
 					catch (e) {
 					}
 				}
-				this.mostVisited = mostVisited;
-				console.log("Most Visited", mostVisited);
-				this.punchcard = punchcard;
-				console.log('Punchcard', punchcard);
-				console.log(punchcard);
+				that.set({
+					mostVisited : mostVisited,
+					punchcard : punchcard
+				});
 			});
 		}
 	})
