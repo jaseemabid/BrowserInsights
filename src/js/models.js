@@ -73,9 +73,10 @@ MyApp.Models = {
 				}
 				that.set({
 					mostVisited : sorted,
-					punchcard : punchcard
+					punchcard : punchcard,
+					totalLoadTime : localStorage.analytics_loadTime
 				});
-				console.log("Most Visited count",sorted);
+				console.log("Total Load Time", localStorage.analytics_loadTime);
 			});
 		}
 	})
