@@ -3,9 +3,8 @@
 	<head>
 		<title>YahooReset</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="css/jquery.jqplot.min.css" type="text/css"/>
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
-		<link rel="stylesheet" href="css/jquery.jqplot.min.css
-" type="text/css"/>
 	</head>
 	<body>
 		<div class="navbar">
@@ -22,24 +21,36 @@
 			</div>
 		</div>
 		<div class="container-fluid">
+
 			<div class="row">
-				<div class="span4" id="leftBar">
+				<div class="offset2 span4 small" id="bigNumGraph">
+
+					<span class="num">42</span>
+
+					<div id="bigNumPlot">
+					</div>
+
+				</div>
+				<div class="offset2 span4 small" id="listGraph">
+					big list view
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span4 small" id="leftBar">
 					<!--Left sidebar-->
 					<ul class="nav nav-tabs nav-stacked">
 						<li><a href=#>Something 1</a></li>
 						<li><a href=#>Something else 2</a></li>
 					</ul>
 				</div>
-				<div class="span8" id="messageBox">
-					<!--Body-->
-					<div class="span8 inlineGraph" id="firstGraph">
-					</div>
-
+				<div class="span4 small" id="inlineGraph1">
 				</div>
-
-				<div class="span4" id="rightBar">
+				<div class="span4 small" id="inlineGraph2">
+				</div>
+				<div class="span4 small" id="inlineGraph3">
 					<!--Right sidebar-->
-					{{ right }}
+					Time range selector
 				</div>
 			</div>
 		</div>
