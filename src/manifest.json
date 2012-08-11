@@ -8,7 +8,13 @@
 		"128": "128.png"
 	},
 	"description": "Local analytics!",
+	"app": {
+      "launch": {
+          "local_path": "default.html"
+      }
+	},
 	"permissions":[
+		"history",
 		"http://localhost/*"
 	],
 	"web_accessible_resources": [
@@ -25,7 +31,6 @@
 				"lib/underscore-min.js",
 				"lib/backbone-min.js",
 				"js/config.js",
-				"js/reset.js",
 				"js/models.js",
 				"js/views.js",
 				"js/app.js",
