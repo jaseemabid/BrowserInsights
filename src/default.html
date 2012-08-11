@@ -2,25 +2,22 @@
 <html>
 	<head>
 		<title>YahooReset</title>
-		<link rel="stylesheet" href="css/backbone.min.css" type="text/css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
-		<style type="text/css" media="screen">
-			.chart rect {
-			stroke: white;
-			fill: steelblue;
-			}
-			.chart circle {
-			stroke: white;
-			fill: steelblue;
-			}
-
-		</style>
-
 	</head>
 	<body>
-		<section id="YahooReset">
-			test
-		</section>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="span4" id="sideBar">
+					<!--Sidebar-->
+					{{  Sidebar }}
+				</div>
+				<div class="span8" id="messageBox">
+					<!--Body-->
+					{{ Content }}
+				</div>
+			</div>
+		</div>
 		<script src="lib/jquery-1.7.2.min.js"></script>
 		<script src="lib/handlebars-1.0.0.beta.6.js"></script>
 		<script src="lib/underscore-min.js"></script>
