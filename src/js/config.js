@@ -1,0 +1,3 @@
+// Application config
+
+var MyApp = {};
