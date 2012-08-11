@@ -4,6 +4,8 @@
 		<title>YahooReset</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<link rel="stylesheet" href="css/jquery.jqplot.min.css
+" type="text/css"/>
 	</head>
 	<body>
 		<div class="navbar">
@@ -11,8 +13,6 @@
 				<div class="container">
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#">Settings</a></li>
 						</ul>
 						<ul class="nav pull-right">
 							<li><a class="brand" href="#">myApp</a></li>
@@ -32,12 +32,9 @@
 				</div>
 				<div class="span8" id="messageBox">
 					<!--Body-->
-					<div class="span4 inlineGraph" id="firstGraph">
-						1
+					<div class="span8 inlineGraph" id="firstGraph">
 					</div>
-					<div class="span4 inlineGraph" id="secondGraph">
-						2
-					</div>
+
 				</div>
 
 				<div class="span4" id="rightBar">
@@ -50,7 +47,8 @@
 		<script src="lib/handlebars-1.0.0.beta.6.js"></script>
 		<script src="lib/underscore-min.js"></script>
 		<script src="lib/backbone-min.js"></script>
-		<script src="lib/raphael.js"></script>
+		<script src="lib/jquery.jqplot.min.js"></script>
+		<script src="lib/jqplot.pieRenderer.min.js"></script>
 		<script src="js/config.js"></script>
 		<script src="js/models.js"></script>
 		<script src="js/views.js"></script>
