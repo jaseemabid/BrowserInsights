@@ -7,5 +7,4 @@ $(function () {
 	MyApp.top = new MyApp.Views.TopSitesView();
 	MyApp.activity = new MyApp.Views.PagesPerTimeView();
 	MyApp.data = new MyApp.Models.RawData();
-	
 });
