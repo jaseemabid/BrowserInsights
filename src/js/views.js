@@ -84,5 +84,44 @@ MyApp.Views = {
 			});
 			$("div#bigNumGraph span.num").html(_.last(this._data()[0]));
 		}
+	}),
+	ScatterPlotView : Backbone.View.extend({
+		id : "inlineGraph2",
+		title : "Browsing activity",
+		_data : function () {
+			var data = this.model.get('punchcard'),
+				vals =  _.values(data),
+				ret = [];
+			_.each(vals, function(val){
+				ret.push( _.values(val));
+			});
+			console.log("Ret :", ret);
+			return ret;
+		},
+		initialize : function () {
+			console.log("Bind event here");
+			this.render();
+		},
+		render : function () {
+			var plot = $.jqplot(this.id, this._data(), {
+				title : this.title,
+				seriesDefaults:{showMarker:true, showLine:false},
+				grid : {
+					drawGridLines		: true,
+					shadow				: false,
+					borderWidth			: 0,
+					background			: '#efefef',
+					borderColor			: '#fffff'
+				},
+				axes : {
+					xaxis : {
+						renderer		: $.jqplot.CategoryAxisRenderer
+					},
+					yaxis : {
+					}
+				}
+			});
+		}
 	})
+
 };

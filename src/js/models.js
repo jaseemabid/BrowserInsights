@@ -66,6 +66,7 @@ MyApp.Models = {
 					mostVisited : mostVisited,
 					punchcard : punchcard
 				});
+				that.trigger("history");
 			});
 		}
 	})
