@@ -1,0 +1,12 @@
+# Temporary Files
+*~
+
+# Chrome App (crx)
+*.crx
+
+# Private Key (pem)
+*.pem
+
+# Build files, test files
+src/css/style.css
+src/js/test.js
