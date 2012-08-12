@@ -54,7 +54,7 @@ MyApp.Views = {
 	PagesPerTimeView : Backbone.View.extend({
 		id : "bigNumPlot",
 		className : "offset2 span4 small",
-		title : "Pages visited per minute",
+		title : "Tab activity",
 		_data : [[3, 7, 9, 1, 4, 6, 8, 2, 5]],
 		initialize : function () {
 			MyApp.dataInstance.on('PPM',this.render, this);
