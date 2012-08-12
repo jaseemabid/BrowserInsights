@@ -55,14 +55,20 @@ MyApp.Views = {
 		id : "bigNumPlot",
 		className : "offset2 span4 small",
 		title : "Pages visited per minute",
-		_data : function () {
-			return [[3, 7, 9, 1, 4, 6, 8, 2, 5]];
-		},
+		_data : [[3, 7, 9, 1, 4, 6, 8, 2, 5]],
 		initialize : function () {
+			MyApp.dataInstance.on('PPM',this.render, this);
+			$("div#bigNumGraph span.num").html(MyApp.pagesPerSeconds);
 			this.render();
 		},
 		render : function () {
-			var plot = $.jqplot(this.id, this._data(), {
+			$("#bigNumPlot").html("");
+			$("div#bigNumGraph span.num").html(MyApp.pagesPerSeconds);
+			this._data[0].push(MyApp.pagesPerSeconds);
+			this._data[0].splice(0,1);
+
+			var plot = $.jqplot(this.id, this._data, {
+				redraw : true,
 				title : this.title,
 				grid : {
 					drawGridLines	: false,
@@ -83,7 +89,6 @@ MyApp.Views = {
 					}
 				}
 			});
-			$("div#bigNumGraph span.num").html(_.last(this._data()[0]));
 		}
 	}),
 	ScatterPlotView : Backbone.View.extend({

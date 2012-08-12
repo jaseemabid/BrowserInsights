@@ -7,8 +7,6 @@ $(function () {
 
 	MyApp.dataInstance = new MyApp.Models.RawData();
 
-	MyApp.activity = new MyApp.Views.PagesPerTimeView();
-
 	MyApp.dataInstance.on("history", function() {
 		MyApp.scatter = new MyApp.Views.ScatterPlotView({
 			model : MyApp.dataInstance
@@ -24,10 +22,6 @@ $(function () {
 	MyApp.dataInstance.on('LT',function(){
 		$("div#listGraph span#loadTime").html(parseInt(localStorage.analytics_loadTime / 1000));
 	});
-	
-	MyApp.dataInstance.on('PPM',function(){
-		console.log(MyApp.pagesPerSeconds);
-		MyApp.pagesPerSeconds = 0;
-	});
 
+	MyApp.activity = new MyApp.Views.PagesPerTimeView();
 });
