@@ -24,5 +24,10 @@ $(function () {
 	MyApp.dataInstance.on('LT',function(){
 		$("div#listGraph span#loadTime").html(parseInt(localStorage.analytics_loadTime / 1000));
 	});
+	
+	MyApp.dataInstance.on('PPM',function(){
+		console.log(MyApp.pagesPerSeconds);
+		MyApp.pagesPerSeconds = 0;
+	});
 
 });
