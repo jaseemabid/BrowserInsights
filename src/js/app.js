@@ -20,9 +20,9 @@ $(function () {
 
 	});
 
-	$("div#listGraph span#loadTime").html(localStorage.analytics_loadTime);
+	$("div#listGraph span#loadTime").html(parseInt(localStorage.analytics_loadTime / 1000));
 	MyApp.dataInstance.on('LT',function(){
-		$("div#listGraph span#loadTime").html(localStorage.analytics_loadTime);
+		$("div#listGraph span#loadTime").html(parseInt(localStorage.analytics_loadTime / 1000));
 	});
 
 });

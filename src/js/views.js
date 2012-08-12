@@ -10,8 +10,8 @@ MyApp.Views = {
 		initialize : function () {
 			this.render();
 		},
-		_data : function () {
-			var top = MyApp.dataInstance.get('mostVisited').slice(0,5);
+		_data : function (m,n) {
+			var top = MyApp.dataInstance.get('mostVisited').slice(m,n);
 			console.log("top", top);
 			var data1 = _.map(top, function(i) {return [i.key, i.value]; });
 			return [data1];
@@ -19,7 +19,7 @@ MyApp.Views = {
 		render : function () {
 
 			var that = this,
-				plot = $.jqplot(that.id, that._data(), {
+				plot = $.jqplot(that.id, that._data(0,5), {
 					title : that.title,
 					textColor : "#ff0000",
 					grid : {
@@ -41,6 +41,14 @@ MyApp.Views = {
 						location		: 'e'
 					}
 				});
+
+			var map = _.map(that._data(6,10)[0], function(i) {
+				return i[0];
+			});
+
+			$("ul#metricsList").append(
+				["<li><a>Other top sites you visited are ", map.join(', '),  " etc.</a></li>"].join("")
+			);
 
 		}
 	}),
@@ -107,7 +115,8 @@ MyApp.Views = {
 					MyApp.data.push(d[i][j]);
 				});
 			});
-			MyApp.data = _.map(MyApp.data, function( i) { return ((i*i)/50); });
+
+			MyApp.data = _.map(MyApp.data, function(i) { return ((i*i)/12); });
 			console.log("wd" , MyApp.data);
 			dots();
 		}

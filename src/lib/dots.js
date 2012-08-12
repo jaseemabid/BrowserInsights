@@ -14,7 +14,7 @@ window.dots = function () {
         leftgutter = 30,
         bottomgutter = 20,
         r = Raphael("inlineGraph2", width, height),
-        txt = {"font": '12px monospace, Fontin-Sans, Arial', stroke: "none", fill: "#444"},
+        txt = {"font": '10px monospace, Fontin-Sans, Arial', stroke: "none", fill: "#444"},
         X = (width - leftgutter) / axisx.length,
         Y = (height - bottomgutter) / axisy.length,
         color = $("#inlineGraph2").css("color");
@@ -37,8 +37,8 @@ window.dots = function () {
                     if (R < 6) {
                         var bg = r.circle(dx + 60 + R, dy + 10, 6).attr({stroke: "none", fill: "#000", opacity: .4}).hide();
                     }
-                    var lbl = r.text(dx + 60 + R, dy + 10, data[o])
-                            .attr({"font": '10px Fontin-Sans, Arial', stroke: "none", fill: "#fff"}).hide();
+                    var lbl = r.text(dx + 60 + R, dy - R + 4 , Math.sqrt(data[o] * 12))
+                            .attr({"font": '12px Fontin-Sans, Arial', stroke: "none", fill: "#222"}).hide();
                     var dot = r.circle(dx + 60 + R, dy + 10, max).attr({stroke: "none", fill: "#000", opacity: 0});
                     dot[0].onmouseover = function () {
                         if (bg) {
@@ -48,6 +48,7 @@ window.dots = function () {
                             clr.b = .5;
                             dt.attr("fill", Raphael.hsb2rgb(clr).hex);
                         }
+
                         lbl.show();
                     };
                     dot[0].onmouseout = function () {
