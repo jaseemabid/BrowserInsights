@@ -25,7 +25,7 @@ MyApp.Models = {
 				'startTime'		: oneYearAgo,	// that was accessed less than one week ago.
 				'maxResults'	: 100000
 			}, function (historyItems) {
-				function compare(a,b){if(a.value>b.value){return -1;}else if(a.value<b.value){return 1;}else{return 0;}};
+				var compare = function (a,b){if(a.value>b.value){return -1;}else if(a.value<b.value){return 1;}else{return 0;}};
 				var re = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/,
 					mostVisited = {},
 					punchcard = {},
@@ -68,7 +68,6 @@ MyApp.Models = {
 						d={'key':key,'value':mostVisited[key]};
 						sorted.push(d);
 					}
-
 					sorted.sort(compare);
 				}
 				that.set({
@@ -76,6 +75,7 @@ MyApp.Models = {
 					punchcard : punchcard,
 					totalLoadTime : localStorage.analytics_loadTime
 				});
+
 				that.trigger("history");
 				console.log("Total Load Time", localStorage.analytics_loadTime);
 			});
