@@ -18,10 +18,11 @@ $(function () {
 			model : MyApp.dataInstance
 		});
 
-
 	});
 
+	$("div#listGraph span#loadTime").html(localStorage.analytics_loadTime);
 	MyApp.dataInstance.on('LT',function(){
-		console.log("Triggered. Load Time : ", localStorage.analytics_loadTime);
+		$("div#listGraph span#loadTime").html(localStorage.analytics_loadTime);
 	});
+
 });
