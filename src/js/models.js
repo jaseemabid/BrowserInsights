@@ -10,7 +10,7 @@ MyApp.Models = {
 			"punchcard": {}
 		},
 		initialize : function () {
-			var microsecondsPerYear = 1000 * 60 * 60 * 24 * 7 * 365,
+			var microsecondsPerYear = 1000 * 60 * 60 * 24 * 7,
 				oneYearAgo = (new Date()).getTime() - microsecondsPerYear,
 				that = this;
 
@@ -25,6 +25,7 @@ MyApp.Models = {
 				'startTime'		: oneYearAgo,	// that was accessed less than one week ago.
 				'maxResults'	: 100000
 			}, function (historyItems) {
+				function compare(a,b){if(a.value>b.value){return -1;}else if(a.value<b.value){return 1;}else{return 0;}};
 				var re = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/,
 					mostVisited = {},
 					punchcard = {},
@@ -33,7 +34,8 @@ MyApp.Models = {
 					lvt,
 					d,
 					day,
-					time;
+					time,
+					sorted;
 				for (i = 0; i < historyItems.length; ++i) {
 					//console.log(historyItems[i].url);
 					a = re.exec(historyItems[i].url);
@@ -61,12 +63,21 @@ MyApp.Models = {
 					}
 					catch (e) {
 					}
+					sorted=[];
+					for(key in mostVisited){
+						d={'key':key,'value':mostVisited[key]};
+						sorted.push(d);
+					}
+
+					sorted.sort(compare);
 				}
 				that.set({
-					mostVisited : mostVisited,
-					punchcard : punchcard
+					mostVisited : sorted,
+					punchcard : punchcard,
+					totalLoadTime : localStorage.analytics_loadTime
 				});
 				that.trigger("history");
+				console.log("Total Load Time", localStorage.analytics_loadTime);
 			});
 		}
 	})
