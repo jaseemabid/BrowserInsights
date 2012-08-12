@@ -112,7 +112,7 @@ MyApp.Views = {
 					MyApp.data.push(d[i][j]);
 				});
 			});
-			MyApp.data = _.map(MyApp.data, function( i) { return ((i*i)/500); });
+			MyApp.data = _.map(MyApp.data, function( i) { return ((i*i)/50); });
 			console.log("wd" , MyApp.data);
 			dots();
 		}
