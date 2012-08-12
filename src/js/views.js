@@ -12,7 +12,6 @@ MyApp.Views = {
 		},
 		_data : function (m,n) {
 			var top = MyApp.dataInstance.get('mostVisited').slice(m,n);
-			console.log("top", top);
 			var data1 = _.map(top, function(i) {return [i.key, i.value]; });
 			return [data1];
 		},
@@ -60,7 +59,6 @@ MyApp.Views = {
 			return [[3, 7, 9, 1, 4, 6, 8, 2, 5]];
 		},
 		initialize : function () {
-			console.log("Bind event here");
 			this.render();
 		},
 		render : function () {
@@ -101,7 +99,6 @@ MyApp.Views = {
 			return ret;
 		},
 		initialize : function () {
-			console.log("Bind event here");
 			this.render();
 		},
 		render : function () {
@@ -117,7 +114,6 @@ MyApp.Views = {
 			});
 
 			MyApp.data = _.map(MyApp.data, function(i) { return ((i*i)/12); });
-			console.log("wd" , MyApp.data);
 			dots();
 		}
 	})

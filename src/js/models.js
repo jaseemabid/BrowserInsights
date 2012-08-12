@@ -37,13 +37,11 @@ MyApp.Models = {
 					time,
 					sorted;
 				for (i = 0; i < historyItems.length; ++i) {
-					//console.log(historyItems[i].url);
 					a = re.exec(historyItems[i].url);
 					lvt = historyItems[i].lastVisitTime;
 					d = new Date();
 					d.setTime(lvt * 1000);
 					d.toUTCString();
-					//console.log(d);
 					day = d.getDay() + "";
 					time = d.getHours() + "";
 					if (!punchcard.hasOwnProperty(day)) {
@@ -77,7 +75,6 @@ MyApp.Models = {
 				});
 
 				that.trigger("history");
-				console.log("Total Load Time", localStorage.analytics_loadTime);
 			});
 		}
 	})
