@@ -1,2 +1,13 @@
-<h4>Settings</h4><br />
-Submit anonymous performance data <input type="checkbox" name="remote" value="1"></input>
+<h4>Settings</h4>
+
+<br />
+
+Submit anonymous performance data <input id="boom" type="checkbox" name="remote"></input>
+
+<script type="text/javascript">
+
+window.onload = function () {
+localStorage['serverSend'] = document.getElementById("boom").checked;
+}
+
+</script>
