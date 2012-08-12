@@ -12,5 +12,8 @@ $(function () {
 		MyApp.scatter = new MyApp.Views.ScatterPlotView({
 			model : MyApp.data
 		});
+
+
+
 	});
 });

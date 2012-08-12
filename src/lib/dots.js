@@ -1,7 +1,10 @@
-function dots() {
+$(function(){
+
+window.dots = function () {
 	console.log("dots");
     // Grab the data
-    var data = window.data,
+	console.log(MyApp.data);
+    var data = MyApp.data,
         axisx = [],
         axisy = [],
         table = $("#for-chart");
@@ -14,7 +17,7 @@ function dots() {
     });
     // Draw
 
-console.log(data, axisx, axisy);
+	console.log(data, axisx, axisy);
     var width = 800,
         height = 300,
         leftgutter = 30,
@@ -69,4 +72,7 @@ console.log(data, axisx, axisy);
             o++;
         }
     }
-}
+};
+
+
+});

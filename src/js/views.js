@@ -104,19 +104,17 @@ MyApp.Views = {
 		render : function () {
 
 			var that = this;
-			window.data = [];
+			MyApp.data = [];
 
 			_(7).times(function (i) {
 				_(24).times(function (j) {
 					var d = that._data();
-					window.data.push(d[i][j]);
+					MyApp.data.push(d[i][j]);
 				});
 			});
-
-			console.log("wd" , window.data);
-			window.data = _.each(window.data, function( i) { return (i/5); });
+			MyApp.data = _.map(MyApp.data, function( i) { return ((i*i)/500); });
+			console.log("wd" , MyApp.data);
 			dots();
-
 		}
 	})
 
