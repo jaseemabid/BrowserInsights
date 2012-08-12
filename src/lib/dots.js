@@ -5,25 +5,16 @@ window.dots = function () {
     // Grab the data
 	console.log(MyApp.data);
     var data = MyApp.data,
-        axisx = [],
-        axisy = [],
+        axisx = ["12am", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12pm", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
+        axisy = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] ,
         table = $("#for-chart");
-    table.hide();
-    $("tbody th", table).each(function () {
-        axisy.push($(this).text());
-    });
-    $("tfoot th", table).each(function () {
-        axisx.push($(this).text());
-    });
     // Draw
-
-	console.log(data, axisx, axisy);
     var width = 800,
         height = 300,
         leftgutter = 30,
         bottomgutter = 20,
         r = Raphael("inlineGraph2", width, height),
-        txt = {"font": '10px Fontin-Sans, Arial', stroke: "none", fill: "#fff"},
+        txt = {"font": '12px monospace, Fontin-Sans, Arial', stroke: "none", fill: "#444"},
         X = (width - leftgutter) / axisx.length,
         Y = (height - bottomgutter) / axisy.length,
         color = $("#inlineGraph2").css("color");
