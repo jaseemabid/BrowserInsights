@@ -9,13 +9,31 @@ console.log("Chrome :", chrome);
 		MyApp.dataInstance.trigger("LT");
 	});
 };
-chrome.webNavigation.onCompleted.addListener(function(data){
+chrome.tabs.onCreated.addListener(function(data){
 	if(!MyApp.hasOwnProperty('pagesPerSeconds')){
 		MyApp.pagesPerSeconds = 0;
 	} else {
 		MyApp.pagesPerSeconds += 1;
 	}
-});
-setInterval(function(){
 	MyApp.dataInstance.trigger("PPM");
-}, 10000);
+});
+chrome.tabs.onUpdated.addListener(function(data){
+	if(!MyApp.hasOwnProperty('pagesPerSeconds')){
+		MyApp.pagesPerSeconds = 0;
+	} else {
+		MyApp.pagesPerSeconds += 1;
+	}
+	MyApp.dataInstance.trigger("PPM");
+});
+chrome.tabs.onRemoved.addListener(function(data){
+	if(!MyApp.hasOwnProperty('pagesPerSeconds')){
+		MyApp.pagesPerSeconds = 0;
+	} else {
+		if(MyApp.pagesPerSeconds>0){
+			MyApp.pagesPerSeconds-=1;
+		} else {
+			MyApp.pagesPerSeconds=0;
+		}
+	}
+	MyApp.dataInstance.trigger("PPM");
+});
