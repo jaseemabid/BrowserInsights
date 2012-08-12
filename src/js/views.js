@@ -95,7 +95,6 @@ MyApp.Views = {
 			_.each(vals, function(val){
 				ret.push( _.values(val));
 			});
-			console.log("Ret :", ret);
 			return ret;
 		},
 		initialize : function () {
@@ -103,25 +102,23 @@ MyApp.Views = {
 			this.render();
 		},
 		render : function () {
-			var plot = $.jqplot(this.id, this._data(), {
-				title : this.title,
-				seriesDefaults:{showMarker:true, showLine:false},
-				grid : {
-					drawGridLines		: true,
-					shadow				: false,
-					borderWidth			: 0,
-					background			: '#efefef',
-					borderColor			: '#fffff'
-				},
-				axes : {
-					xaxis : {
-						renderer		: $.jqplot.CategoryAxisRenderer
-					},
-					yaxis : {
-					}
-				}
+
+			var that = this;
+			window.data = [];
+
+			_(7).times(function (i) {
+				_(24).times(function (j) {
+					var d = that._data();
+					window.data.push(d[i][j]);
+				});
 			});
+
+			console.log("wd" , window.data);
+			window.data = _.each(window.data, function( i) { return (i/5); });
+			dots();
+
 		}
 	})
+
 
 };
