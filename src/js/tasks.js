@@ -9,3 +9,13 @@ console.log("Chrome :", chrome);
 		MyApp.dataInstance.trigger("LT");
 	});
 };
+chrome.webNavigation.onCompleted.addListener(function(data){
+	if(!MyApp.hasOwnProperty('pagesPerSeconds')){
+		MyApp.pagesPerSeconds = 0;
+	} else {
+		MyApp.pagesPerSeconds += 1;
+	}
+});
+setInterval(function(){
+	MyApp.dataInstance.trigger("PPM");
+}, 10000);
