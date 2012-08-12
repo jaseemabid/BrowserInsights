@@ -11,15 +11,10 @@ MyApp.Views = {
 			this.render();
 		},
 		_data : function () {
-			var data = [[
-				['google.com', 12],
-				['facebook.com', 9],
-				['hackernews', 14],
-				['en.wikipedia.com', 16],
-				['twitter.com', 7],
-				['Yahoo!', 9]
-			]];
-			return data;
+			var top = MyApp.dataInstance.get('mostVisited').slice(0,5);
+			console.log("top", top);
+			var data1 = _.map(top, function(i) {return [i.key, i.value]; });
+			return [data1];
 		},
 		render : function () {
 

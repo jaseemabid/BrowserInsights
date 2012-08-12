@@ -4,19 +4,24 @@
 
 $(function () {
 	"use strict";
-	MyApp.top = new MyApp.Views.TopSitesView();
+
+	MyApp.dataInstance = new MyApp.Models.RawData();
+
 	MyApp.activity = new MyApp.Views.PagesPerTimeView();
-	MyApp.data = new MyApp.Models.RawData();
 
-
-
-	MyApp.data.on("history", function() {
+	MyApp.dataInstance.on("history", function() {
 		MyApp.scatter = new MyApp.Views.ScatterPlotView({
-			model : MyApp.data
+			model : MyApp.dataInstance
 		});
+
+		MyApp.top = new MyApp.Views.TopSitesView({
+			model : MyApp.dataInstance
+		});
+
+
 	});
 
-	MyApp.data.on('LT',function(){
+	MyApp.dataInstance.on('LT',function(){
 		console.log("Triggered. Load Time : ", localStorage.analytics_loadTime);
 	});
 });
