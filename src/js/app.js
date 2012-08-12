@@ -14,6 +14,7 @@ $(function () {
 		MyApp.scatter = new MyApp.Views.ScatterPlotView({
 			model : MyApp.data
 		});
+	});
 
 	MyApp.data.on('LT',function(){
 		console.log("Triggered. Load Time : ", localStorage.analytics_loadTime);
