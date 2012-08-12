@@ -13,6 +13,7 @@
           "local_path": "default.html"
       }
 	},
+	"options_page" :"options.html",
 	"permissions":[
 		"history",
 		"webNavigation",
